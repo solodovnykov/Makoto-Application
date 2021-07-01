@@ -1,0 +1,334 @@
+@import "../../sass/variables";
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+  font-family: Whitney;
+  font-weight: 900;
+
+  .navbar-icons {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navbar-networks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 1199.98px) {
+      display: none;
+    }
+
+    .discord-icon {
+      background-image: url("../../images/DiscordIcon.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-right: 4px;
+    }
+
+    .vk-icon {
+      background-image: url("../../images/VkIcon.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-left: 4px;
+    }
+  }
+
+  .logo {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../images/MakotoLogo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 200;
+    margin-right: 42px;
+
+    @media (max-width: 1199.98px) {
+      margin: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      border: 5px solid rgba(19, 22, 36, 0.6);
+      z-index: 101;
+    }
+  }
+
+  .navbar-burger {
+    width: 28px;
+    height: 24px;
+    position: relative;
+
+    @media (max-width: 1199.98px) {
+      &::before {
+        transition: 0.2s all ease-in-out;
+      }
+      &::after {
+        transition: 0.2s all ease-in-out;
+      }
+    }
+
+    &::before {
+      content: "";
+      background: #fff;
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      background: #fff;
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .navbar-burger-item {
+      position: absolute;
+      background: #fff;
+      width: 100%;
+      height: 4px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.1s all ease-in-out;
+    }
+  }
+
+  .navbar-burger.burger-active span {
+    transform: scale(0);
+  }
+  .navbar-burger.burger-active::before {
+    transform: rotate(45deg) translateY(-2px);
+    transform-origin: top;
+    transition: 0.2s all ease-in-out;
+    top: 50%;
+  }
+  .navbar-burger.burger-active::after {
+    transform: rotate(-45deg) translateY(2px);
+    transform-origin: bottom;
+    transition: 0.2s all ease-in-out;
+    bottom: 50%;
+  }
+
+  .navbar-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+    transition: 0.2s all ease-in-out;
+
+    @media (max-width: 1199.98px) {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -300px;
+      background: rgba(19, 23, 40, 0.9);
+      max-width: 300px;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      padding-top: 50px;
+      box-sizing: border-box;
+      z-index: 211;
+      backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+      overflow-y: scroll;
+    }
+    @media (max-width: 370px) {
+      max-width: 250px;
+    }
+
+    .navbar-menu-logo {
+      font-size: 42px;
+    }
+
+    .navbar-list {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      padding: 0;
+
+      @media (max-width: 1199.98px) {
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .navbar-item {
+        padding: 0 15px;
+
+        @media (max-width: 1199.98px) {
+          margin-top: 40px;
+        }
+
+        .navbar-link {
+          color: $font-second-color;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .navbar-link-active {
+          color: #3687ff;
+          position: relative;
+        }
+
+        .navbar-link-active::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background: #3687ff;
+          position: absolute;
+          bottom: -9px;
+          left: 0;
+        }
+      }
+    }
+
+    .navbar-main-button {
+      color: $font-main-color;
+      font-size: 18px;
+      font-weight: 700;
+      background: $blue-color;
+      border-left: 0.25px solid #a3c2f0;
+      border-top: 0.25px solid #a3c2f0;
+      border-right: 0.25px solid #a3c2f0;
+      padding: 12px 50px;
+      position: relative;
+      z-index: 200;
+      box-shadow: inset 0 -2.5px 0 #24487e;
+
+      @media (max-width: 1199.98px) {
+        display: none;
+      }
+
+      &::before {
+        left: -5px;
+        top: -5px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        border: 5px solid rgba(19, 22, 36, 0.6);
+        z-index: 101;
+      }
+    }
+
+    .navbar-networks-menu {
+      @media (max-width: 1199.98px) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 100px;
+        transform: translateX(-23px);
+      }
+
+      .discord-icon {
+        background-image: url("../../images/DiscordIcon.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 4px;
+      }
+
+      .vk-icon {
+        background-image: url("../../images/VkIcon.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  @media (max-width: 1199.98px) {
+    .navbar-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      margin-top: 0;
+      background: transparent;
+      z-index: 205;
+      transition: 0.2s background ease;
+    }
+    .navbar-wrapper.active {
+      background: rgba(19, 23, 40, 0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      transition: 0.2s background ease;
+    }
+    .navbar-menu-logo {
+      font-size: 42px;
+    }
+    .navbar-main-button-mob {
+      color: $font-main-color;
+      font-size: 18px;
+      font-weight: 700;
+      background: $blue-color;
+      border-left: 0.25px solid #a3c2f0;
+      border-top: 0.25px solid #a3c2f0;
+      border-right: 0.25px solid #a3c2f0;
+      padding: 12px 50px;
+      position: relative;
+      z-index: 200;
+      box-shadow: inset 0 -2.5px 0 #24487e;
+
+      &:before {
+        left: -5px;
+        top: -5px;
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        border: 5px solid rgba(19, 22, 36, 0.6);
+        z-index: 101;
+      }
+    }
+  }
+
+  @media (min-width: 1199.98px) {
+    .navbar-main-button-mob,
+    .navbar-burger,
+    .navbar-menu-logo,
+    .navbar-networks-menu {
+      display: none;
+    }
+  }
+  @media (max-width: 370px) {
+    .navbar-main-button-mob {
+      padding: 8px 30px;
+      font-size: 16px;
+    }
+    .navbar-main {
+      max-width: 250px;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 60px;
+
+  .footer-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 160px;
+
+    .footer-text-h1 {
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 37.9094px;
+      line-height: 44px;
+      letter-spacing: 0.07em;
+      color: #ffffff;
+      text-shadow: 0px 2.36934px 2.36934px rgba(0, 0, 0, 0.25);
+    }
+
+    .footer-text-h2 {
+      font-weight: 600;
+      font-size: 9.47735px;
+      line-height: 12px;
+      letter-spacing: 0.115em;
+      color: #ffffff;
+      text-shadow: 0px 2.36934px 2.36934px rgba(0, 0, 0, 0.25);
+    }
+
+    .footer-main-copyright {
+      max-width: 150px;
+      font-weight: 350;
+      font-size: 13px;
+      line-height: 17px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-left: 20px;
+    }
+  }
+
+  .footer-networks {
+    display: flex;
+    flex-direction: row;
+
+    .footer-discord-icon {
+      width: 34px;
+      height: 34px;
+      background-image: url("../../images/DiscordFooterIcon.svg");
+      background-position: center;
+      background-size: auto;
+      background-repeat: no-repeat;
+      margin-right: 7px;
+    }
+
+    .footer-vk-icon {
+      width: 34px;
+      height: 34px;
+      background-image: url("../../images/VkFooterIcon.svg");
+      background-position: center;
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 575.98px) {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .footer-after {
+      display: none;
+    }
+
+    .footer-main {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+    margin-bottom: 25px;
+
+    .footer-main {
+      order: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .footer-main-logo {
+      position: absolute;
+      left: 0;
+      top: -34px;
+    }
+    .footer-discord-icon {
+      margin-right: 20px;
+    }
+    .footer-text-h2 {
+      display: none;
+    }
+    .footer-main-copyright {
+      font-weight: 350;
+      font-size: 10px;
+      line-height: 13px;
+      max-width: none;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+    .footer-text-h1 {
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: 0.07em;
+      transform: translateY(-13px);
+    }
+    .footer-discord-icon,
+    .footer-vk-icon {
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+    }
+  }
+}

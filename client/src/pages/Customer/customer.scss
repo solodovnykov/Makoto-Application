@@ -1,0 +1,29 @@
+.customer {
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: url("../../images/HomeBg.webp");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-color: #1b2032;
+  z-index: 1;
+  color: var(--font-main-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(27, 32, 50, 0.4) 0%,
+      #1b2032 40.12%
+    );
+    backdrop-filter: blur(10px);
+  }
+}

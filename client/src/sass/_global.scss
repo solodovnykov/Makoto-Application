@@ -1,0 +1,128 @@
+body {
+  background: #1b2032;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Whitney, sans-serif;
+  color: #fff;
+}
+
+@font-face {
+  font-family: "Whitney";
+  font-weight: 900;
+  src: local("Whitney"), url(../fonts/Whitney-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Whitney";
+  font-weight: 700;
+  src: local("Whitney"), url(../fonts/Whitney-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Whitney";
+  font-weight: 600;
+  src: local("Whitney"), url(../fonts/Whitney-Semibold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Whitney";
+  font-weight: 350;
+  src: local("Whitney"), url(../fonts/Whitney-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Whitney";
+  font-weight: 325;
+  src: local("Whitney"), url(../fonts/Whitney-Book.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 200;
+  src: local("Roboto"), url(../fonts/Roboto-Thin.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  src: local("Roboto"), url(../fonts/Roboto-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: local("Roboto"), url(../fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  src: local("Roboto"), url(../fonts/Roboto-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bolt";
+  font-weight: 700;
+  src: local("Roboto"), url(../fonts/Roboto-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 900;
+  src: local("Roboto"), url(../fonts/Roboto-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu-Regular";
+  font-weight: 400;
+  src: local("Ubuntu-Regular"),
+    url(../fonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  width: 10px;
+  background: #1b2032;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(126, 135, 139, 0.6);
+  transition: all 0.2s ease-in-out;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #4a5158;
+  transition: all 0.2s ease-in-out;
+}
+
+.w-350 {
+  color: #fff;
+  font-weight: 350;
+}
+
+.green-c {
+  color: #4ad849;
+}
+
+.white-c {
+  color: #fff;
+}
+
+.purple-c {
+  color: #daa4fc;
+}
+
+.pink-c {
+  color: #fc9494;
+}
+
+.f-16 {
+  font-size: 16px;
+}
