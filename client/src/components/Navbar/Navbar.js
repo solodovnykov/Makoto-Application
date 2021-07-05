@@ -49,7 +49,7 @@ export default function Navbar() {
         <ul className="navbar-list">
           <li className="navbar-item">
             <NavLink
-              to="/#/"
+              to="/"
               exact
               activeClassName="navbar-link-active"
               className="navbar-link"
@@ -59,7 +59,7 @@ export default function Navbar() {
           </li>
           <li className="navbar-item">
             <NavLink
-              to="/signIn#/"
+              to="/signIn"
               activeClassName="navbar-link-active"
               className="navbar-link"
             >
@@ -73,7 +73,7 @@ export default function Navbar() {
         <ul className="navbar-list">
           <li className="navbar-item">
             <NavLink
-              to="/rules#/"
+              to="/rules"
               activeClassName="navbar-link-active"
               className="navbar-link"
             >
@@ -82,7 +82,7 @@ export default function Navbar() {
           </li>
           <li className="navbar-item">
             <NavLink
-              to="/vote#/"
+              to="/vote"
               activeClassName="navbar-link-active"
               className="navbar-link"
             >

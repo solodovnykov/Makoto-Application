@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import "./admin.scss";
-
+import FileBase from "react-file-base64";
 import RedArrowImg from "../../images/RedArrowIcon.svg";
 import GreenPlusImg from "../../images/GreenPlusImg.svg";
-import GraySuccessImg from "../../images/GraySuccessImg.svg";
 
 export default function Admin() {
+  const [postData, setPostData] = useState({
+    creator: "",
+    title: "",
+    message: "",
+    tags: [""],
+    selectedFile: "",
+  });
+
   return (
     <div className="admin">
       <Container>
@@ -61,7 +69,8 @@ export default function Admin() {
               </div>
             </div>
 
-            <button className="hub-button"></button>
+            <NavLink to="/" className="hub-button"></NavLink>
+            <span className="admin-hub-line" />
 
             <div className="admin-stat-list">
               <div className="admin-stat">
@@ -112,61 +121,233 @@ export default function Admin() {
                 <div className="button">
                   <img src={RedArrowImg} alt="" />
                 </div>
-                <div className="line" />
+                <div className={postData.title ? `line active` : `line`} />
               </div>
               <div className="progress-button">
                 <div className="progress-button-header">
-                  <div className="line active" />
-                  <div className="button active">
+                  <div
+                    className={
+                      postData.title ? `line-progress-btn active` : `line`
+                    }
+                  />
+                  <div className={postData.title ? `button active` : `button`}>
                     <img
                       src={GreenPlusImg}
                       alt=""
-                      className="button-image active"
+                      className={
+                        postData.title ? `button-image active` : `button-image`
+                      }
                     />
+                    <div
+                      className={
+                        postData.title
+                          ? `progress-button-footer active`
+                          : `progress-button-footer`
+                      }
+                    >
+                      Заголовок
+                    </div>
                   </div>
-                  <div className="line active" />
+                  <div
+                    className={
+                      postData.title ? `line-progress-btn active` : `line`
+                    }
+                  />
                 </div>
               </div>
 
               <div className="progress-button">
                 <div className="progress-button-header">
-                  <div className="line active" />
-                  <div className="button active">
+                  <div
+                    className={
+                      postData.tags[0] !== ""
+                        ? `line-progress-btn active`
+                        : `line`
+                    }
+                  />
+                  <div
+                    className={
+                      postData.tags[0] !== "" ? `button active` : `button`
+                    }
+                  >
                     <img
                       src={GreenPlusImg}
                       alt=""
-                      className="button-image active"
+                      className={
+                        postData.tags[0] !== ""
+                          ? `button-image active`
+                          : `button-image`
+                      }
                     />
+                    <div
+                      className={
+                        postData.tags[0] !== ""
+                          ? `progress-button-footer active`
+                          : `progress-button-footer`
+                      }
+                    >
+                      Теги
+                    </div>
                   </div>
-                  <div className="line active" />
+                  <div
+                    className={
+                      postData.tags[0] !== ""
+                        ? `line-progress-btn active`
+                        : `line`
+                    }
+                  />
                 </div>
               </div>
 
               <div className="progress-button">
                 <div className="progress-button-header">
-                  <div className="line active" />
-                  <div className="button active">
+                  <div
+                    className={
+                      postData.selectedFile
+                        ? `line-progress-btn active`
+                        : `line`
+                    }
+                  />
+                  <div
+                    className={
+                      postData.selectedFile ? `button active` : `button`
+                    }
+                  >
                     <img
                       src={GreenPlusImg}
                       alt=""
-                      className="button-image active"
+                      className={
+                        postData.selectedFile
+                          ? `button-image active`
+                          : `button-image`
+                      }
                     />
+
+                    <div
+                      className={
+                        postData.selectedFile
+                          ? `progress-button-footer active`
+                          : `progress-button-footer`
+                      }
+                    >
+                      Обложка
+                    </div>
                   </div>
-                  <div className="line active" />
+                  <div
+                    className={
+                      postData.selectedFile
+                        ? `line-progress-btn active`
+                        : `line`
+                    }
+                  />
+                </div>
+              </div>
+
+              <div className="progress-button">
+                <div className="progress-button-header">
+                  <div
+                    className={
+                      postData.message ? `line-progress-btn active` : `line`
+                    }
+                  />
+                  <div
+                    className={postData.message ? `button active` : `button`}
+                  >
+                    <img
+                      src={GreenPlusImg}
+                      alt=""
+                      className={
+                        postData.message
+                          ? `button-image active`
+                          : `button-image`
+                      }
+                    />
+
+                    <div
+                      className={
+                        postData.message
+                          ? `progress-button-footer active`
+                          : `progress-button-footer`
+                      }
+                    >
+                      Текст
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      postData.message ? `line-progress-btn active` : `line`
+                    }
+                  />
                 </div>
               </div>
 
               <div className="success-square">
-                <div className="line" />
-                <div className="button">
-                  <img src={GraySuccessImg} alt="" />
+                <div className={postData.message ? `line active` : `line`} />
+                <div
+                  className={
+                    postData.title &&
+                    postData.tags[0] !== "" &&
+                    postData.selectedFile &&
+                    postData.message
+                      ? `button active`
+                      : `button`
+                  }
+                >
+                  <div className="success-icon">
+                    <span className="success-line-1" />
+                    <span className="success-line-2" />
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="admin-icon" />
+            <div className="admin-icon"></div>
             <div className="line-progress" />
           </div>
+        </div>
+
+        <div className="admin-body">
+          <div className="text-area">
+            <input
+              type="text"
+              className="title-field"
+              value={postData.title}
+              onChange={(e) =>
+                setPostData({ ...postData, title: e.target.value })
+              }
+              name="title"
+              placeholder="Заголовок интересной новости для публикации"
+            />
+            <input
+              type="text"
+              className="tag-field"
+              value={postData.tags}
+              onChange={(e) =>
+                setPostData({ ...postData, tags: e.target.value.split(",") })
+              }
+              name="tags"
+              placeholder="Теги ( через запятую )"
+            />
+            <FileBase
+              type="file"
+              className="file-loader"
+              multiple={false}
+              onDone={({ base64 }) =>
+                setPostData({ ...postData, selectedFile: base64 })
+              }
+            ></FileBase>
+            <textarea
+              type="text"
+              className="text-field"
+              value={postData.message}
+              onChange={(e) =>
+                setPostData({ ...postData, message: e.target.value })
+              }
+              name="message"
+              placeholder="Текст поста"
+            />
+          </div>
+          <div className="image-area"></div>
         </div>
       </Container>
     </div>

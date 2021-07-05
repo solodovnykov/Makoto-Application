@@ -31,6 +31,7 @@
         height: 1px;
         background: #585c70;
         opacity: 0.25;
+        transition: 0.1s all ease-in-out;
       }
 
       .vk-icon {
@@ -39,7 +40,7 @@
         background-image: url("../../images/VkIconGray.svg");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         margin: 0 15px 0 15px;
       }
 
@@ -49,7 +50,7 @@
         background-image: url("../../images/DiscordIconGray.svg");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         margin: 0 15px 0 15px;
       }
 
@@ -81,6 +82,7 @@
       flex-direction: row;
       justify-content: space-between;
       margin-top: 25px;
+      position: relative;
 
       .hub-button {
         min-width: 120px;
@@ -89,7 +91,6 @@
         background: #3c4152;
         border: 1px solid #3c4152;
         border-radius: 50%;
-        position: relative;
         z-index: 100;
         padding: 0;
         transition: 0.3s all ease-in-out;
@@ -116,6 +117,18 @@
           background-position: center;
           background-size: cover;
         }
+      }
+
+      .admin-hub-line {
+        width: 1px;
+        height: 35px;
+        position: absolute;
+        background: #2f2e3a;
+        bottom: -35px;
+        transform: translateX(-50%);
+        left: 50%;
+        transition: 0.3s all ease-in-out;
+        display: block;
       }
 
       .admin-stat-list {
@@ -168,7 +181,6 @@
               display: none;
             }
           }
-          
         }
         @media (max-width: 1000px) {
           justify-content: center;
@@ -185,13 +197,22 @@
       @media (max-width: 1000px) {
         justify-content: center;
       }
+      @media (max-width: 900px) {
+        .admin-hub-line {
+          width: 1px;
+          height: 95px;
+          bottom: -95px;
+          transform: translateX(-50%);
+          left: 50%;
+        }
+      }
     }
 
     .admin-progress {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin-top: 60px;
+      margin-top: 35px;
       padding: 20px 0;
 
       .line-progress {
@@ -220,6 +241,11 @@
         align-items: center;
         .line {
           @extend .line;
+          &.active {
+            background: #42a940;
+            opacity: 1;
+            transition: 0.1s all ease-in-out;
+          }
         }
         .button {
           min-width: 28px;
@@ -231,24 +257,105 @@
           align-items: center;
           justify-content: center;
           transition: all 0.1s ease;
-          cursor: pointer;
+          cursor: not-allowed;
+          position: relative;
+          transition: 0.1s all ease-in-out;
 
-          &:hover {
+          &.active {
+            background: #1d2e4b;
+            border: 1px solid #3b7de0;
+            cursor: pointer;
+            transition: 0.1s all ease-in-out;
+
+            .success-icon {
+              .success-line-1 {
+                background: #3b7de0;
+                transition: 0.1s all ease-in-out;
+              }
+              .success-line-2 {
+                background: #3b7de0;
+                transition: 0.1s all ease-in-out;
+              }
+            }
+          }
+
+          &.active:hover {
             box-shadow: 0px 0px 7px rgba(123, 173, 246, 0.4);
             transition: all 0.1s ease;
             border: 1px solid #7badf6;
+
+            .success-line-1 {
+              background: #7badf6;
+            }
+            .success-line-2 {
+              background: #7badf6;
+            }
           }
 
-          img {
-            width: 9px;
-            height: 9px;
-            transform: rotate(-45deg);
+          .success-icon {
+            transform: rotate(-90deg) translate(1px, -1px);
+            position: absolute;
+            width: 11px;
+            height: 5px;
+
+            .success-line-1 {
+              width: 11px;
+              height: 1px;
+              background: #3c4152;
+              position: absolute;
+              transform: translate(0, 0);
+              left: 0;
+              bottom: 0;
+              transition: 0.1s all ease-in-out;
+            }
+            .success-line-2 {
+              width: 1px;
+              height: 5px;
+              background: #3c4152;
+              position: absolute;
+              transform: translate(0, 0);
+              left: 0;
+              bottom: 0;
+              transition: 0.1s all ease-in-out;
+            }
+
+            &.active {
+              transform: rotate(-90deg) translate(1px, -1px);
+              position: absolute;
+              width: 11px;
+              height: 5px;
+
+              .success-icon {
+                .success-line-1 {
+                  width: 11px;
+                  height: 1px;
+                  background: #3b7de0;
+                  position: absolute;
+                  transform: translate(0, 0);
+                  left: 0;
+                  bottom: 0;
+                  transition: 0.1s all ease-in-out;
+                }
+                .success-line-2 {
+                  width: 1px;
+                  height: 5px;
+                  background: #3b7de0;
+                  position: absolute;
+                  transform: translate(0, 0);
+                  left: 0;
+                  bottom: 0;
+                  transition: 0.1s all ease-in-out;
+                }
+              }
+            }
           }
         }
       }
 
       .progress-button {
         width: 100%;
+        position: relative;
+
         .progress-button-header {
           display: flex;
           flex-direction: row;
@@ -262,28 +369,50 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: 0.1s all ease-in-out;
+            position: relative;
 
             &.active {
               background: #1f302b;
               border: 1px solid #42a940;
+              transition: 0.1s all ease-in-out;
             }
 
             .button-image {
               display: none;
+              transition: 0.1s all ease-in-out;
 
               &.active {
                 display: block;
+                transition: 0.1s all ease-in-out;
+              }
+            }
+
+            .progress-button-footer {
+              position: absolute;
+              font-family: "Ubuntu", sans-serif;
+              font-size: 12px;
+              color: #606479;
+              transition: 0.1s all ease-in-out;
+              left: 0;
+              transform: translateY(35px);
+
+              &.active {
+                color: #42a940;
+                transition: 0.1s all ease-in-out;
               }
             }
           }
 
-          .line {
+          .line-progress-btn {
             width: 100%;
             height: 1px;
             background: #292b38;
+            transition: 0.1s all ease-in-out;
 
             &.active {
               background: #42a940;
+              transition: 0.1s all ease-in-out;
             }
           }
         }
@@ -296,6 +425,11 @@
         align-items: center;
         .line {
           @extend .line;
+
+          &.active {
+            background: #42a940;
+            opacity: 1;
+          }
         }
         .button {
           min-width: 28px;
@@ -332,11 +466,69 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        position: relative;
 
         @media (max-width: 900px) {
           display: none;
         }
       }
+    }
+  }
+
+  .admin-body {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 20px 0;
+    gap: 110px;
+
+    .text-area {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+
+      .title-field {
+        background: rgba(88, 92, 112, 0.05);
+        border: 1px solid rgba(88, 92, 112, 0.25);
+        padding: 8px 10px;
+        box-sizing: border-box;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #999fbc;
+      }
+      .tag-field {
+        @extend .title-field;
+      }
+      .text-field {
+        @extend .title-field;
+        height: 350px;
+        resize: none;
+      }
+
+      input[type="file"] {
+        @extend .title-field;
+
+        &::-webkit-file-upload-button {
+          border: none;
+          background: #363943;
+          color: #929292;
+          padding: 1px 14px;
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 500;
+          transform: translateX(-4px);
+
+          &:hover {
+            background: #31343d;
+            color: #9b9b9b;
+          }
+        }
+      }
+    }
+
+    .image-area {
+      width: 100%;
     }
   }
 }
