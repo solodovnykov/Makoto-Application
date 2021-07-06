@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Navbar from "../../components/Navbar/Navbar";
 import Home from "../../pages/Home/Home";
@@ -9,7 +9,7 @@ import Rules from "../Rules/Rules";
 
 const Customer = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="customer">
         <Container>
           <Navbar />
@@ -20,7 +20,7 @@ const Customer = () => {
           <Footer />
         </Container>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

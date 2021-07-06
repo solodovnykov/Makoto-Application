@@ -200,8 +200,8 @@
       @media (max-width: 900px) {
         .admin-hub-line {
           width: 1px;
-          height: 95px;
-          bottom: -95px;
+          height: 70px;
+          bottom: -70px;
           transform: translateX(-50%);
           left: 50%;
         }
@@ -239,6 +239,9 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
         .line {
           @extend .line;
           &.active {
@@ -529,6 +532,38 @@
 
     .image-area {
       width: 100%;
+      .page-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        .page-number-btn {
+          min-width: 28px;
+          height: 28px;
+          background: #1e1f2a;
+          border: 1px solid #292b38;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.1s all ease-in-out;
+          color: #303342;
+          font-size: 14px;
+          font-weight: 700;
+          font-family: "Roboto", sans-serif;
+
+          &:hover {
+            border: 1px solid #4c5068;
+            color: #3c3f52;
+            box-shadow: 0px 0px 4px #3c3f52;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
     }
   }
 }

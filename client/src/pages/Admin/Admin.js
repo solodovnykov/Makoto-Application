@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import "./admin.scss";
+import { useDispatch, useSelector } from "react-redux";
+import MiniPostList from "../../components/MiniPostList/MiniPostList";
 import FileBase from "react-file-base64";
 import RedArrowImg from "../../images/RedArrowIcon.svg";
 import GreenPlusImg from "../../images/GreenPlusImg.svg";
+import { createPost, updatePost } from "../../actions/posts";
 
 export default function Admin() {
+  const [currentId, setCurrentId] = useState(0);
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -14,6 +18,37 @@ export default function Admin() {
     tags: [""],
     selectedFile: "",
   });
+
+  const dispatch = useDispatch();
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (currentId === 0) {
+      dispatch(createPost(postData));
+      clear();
+    } else {
+      dispatch(updatePost(currentId, postData));
+      clear();
+    }
+  };
+
+  const clear = () => {
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
     <div className="admin">
@@ -281,7 +316,7 @@ export default function Admin() {
                 </div>
               </div>
 
-              <div className="success-square">
+              <button className="success-square" onClick={handleSubmit}>
                 <div className={postData.message ? `line active` : `line`} />
                 <div
                   className={
@@ -298,7 +333,7 @@ export default function Admin() {
                     <span className="success-line-2" />
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
 
             <div className="admin-icon"></div>
@@ -307,7 +342,7 @@ export default function Admin() {
         </div>
 
         <div className="admin-body">
-          <div className="text-area">
+          <form className="text-area">
             <input
               type="text"
               className="title-field"
@@ -336,6 +371,7 @@ export default function Admin() {
                 setPostData({ ...postData, selectedFile: base64 })
               }
             ></FileBase>
+            <input type="file" className="file-loader" />
             <textarea
               type="text"
               className="text-field"
@@ -346,8 +382,13 @@ export default function Admin() {
               name="message"
               placeholder="Текст поста"
             />
+          </form>
+          <div className="image-area">
+            <div className="page-list">
+              <div className="page-number-btn">1</div>
+            </div>
+            <MiniPostList setCurrentId={setCurrentId} />
           </div>
-          <div className="image-area"></div>
         </div>
       </Container>
     </div>
