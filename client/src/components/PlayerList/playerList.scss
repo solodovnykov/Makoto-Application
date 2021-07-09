@@ -1,0 +1,52 @@
+.player-list {
+  margin: 60px 0 30px 0;
+
+  .players-wrapper {
+    position: relative;
+    .players {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      overflow-x: scroll;
+      margin-top: 20px;
+      padding-bottom: 20px;
+      
+
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background: transparent;
+        height: 10px;
+        background: #1b2032;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: rgba(126, 135, 139, 0.6);
+        transition: all 0.2s ease-in-out;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #4a5158;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .shadow-block {
+      height: 100%;
+      width: 120px;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateX(2px);
+      background: linear-gradient(270deg, #1b2032 0%, rgba(27, 32, 50, 0) 100%);
+    }
+  }
+}

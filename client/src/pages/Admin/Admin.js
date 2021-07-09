@@ -20,6 +20,9 @@ export default function Admin() {
   });
 
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userSignin);
+  const { userInfo } = user;
+
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
@@ -55,7 +58,21 @@ export default function Admin() {
       <Container>
         <div className="admin-header">
           <div className="admin-bar">
-            <div className="line" />
+            <div className="line-wrapper">
+              <div className="admin-bar-nickname">
+                {
+                  userInfo ? (
+                    <>
+                      {userInfo.result.login}
+                    </>
+                  ) : (
+                    ''
+                  )
+                }
+              </div>
+              <div className="line" />
+            </div>
+
             <div className="vk-icon" />
             <div className="line-center">
               <div className="line-top" />
@@ -371,7 +388,6 @@ export default function Admin() {
                 setPostData({ ...postData, selectedFile: base64 })
               }
             ></FileBase>
-            <input type="file" className="file-loader" />
             <textarea
               type="text"
               className="text-field"

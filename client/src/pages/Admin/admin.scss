@@ -26,6 +26,22 @@
       align-items: center;
       justify-content: space-between;
 
+      .line-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        .admin-bar-nickname {
+          margin-right: 10px;
+
+          @media (max-width: 600px) {
+            font-size: 14px;
+          }
+        }
+      }
+
       .line {
         width: 100%;
         height: 1px;

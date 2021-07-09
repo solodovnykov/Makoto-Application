@@ -1,0 +1,224 @@
+.sign-in-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../../images/AdminBlur.webp");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #999fbc;
+
+  .admin-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background: #585c70;
+      opacity: 0.25;
+      transition: 0.1s all ease-in-out;
+    }
+
+    .vk-icon {
+      min-width: 20px;
+      height: 12px;
+      background-image: url("../../images/VkIconGray.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 0 15px 0 15px;
+    }
+
+    .discord-icon {
+      min-width: 20px;
+      height: 12px;
+      background-image: url("../../images/DiscordIconGray.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 0 15px 0 15px;
+    }
+
+    .line-center {
+      min-width: 20px;
+      height: 54px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(26px);
+
+      .line-top {
+        width: 20px;
+        height: 1px;
+        background: #585c70;
+        opacity: 0.25;
+      }
+      .line-bottom {
+        height: 53px;
+        width: 1px;
+        background: #585c70;
+        opacity: 0.25;
+      }
+    }
+  }
+
+  .hub-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+    position: relative;
+
+    .hub-button {
+      min-width: 120px;
+      margin: 0 20px;
+      height: 120px;
+      background: #3c4152;
+      border: 1px solid #3c4152;
+      border-radius: 50%;
+      z-index: 100;
+      padding: 0;
+      transition: 0.3s all ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background: #2f3341;
+        transition: 0.3s all ease-in-out;
+        transform: rotate(360deg);
+      }
+
+      &::after {
+        content: "";
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 101;
+        border-radius: 50%;
+        background-image: url("../../images/MakotoLogo.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+
+  .sign-in-form {
+    max-width: 485px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 43px 41px;
+    box-sizing: border-box;
+    background: rgba(88, 92, 112, 0.05);
+    border: 1px solid rgba(88, 92, 112, 0.25);
+    position: relative;
+    margin: 50px auto 300px;
+    gap: 20px;
+
+    .sign-in-input {
+      width: 100%;
+      height: 60px;
+      background: rgba(88, 92, 112, 0.1);
+      border: 1px solid rgba(88, 92, 112, 0.35);
+      padding: 0 27px;
+      box-sizing: border-box;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #999fbc;
+      font-family: Ubuntu, sans-serif;
+      letter-spacing: 1px;
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .sign-in-input-wrapper {
+      position: relative;
+      .eye-wrapper {
+        width: 24px;
+        height: 24px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-27px, -50%);
+        .eye-open {
+          width: 24px;
+          height: 24px;
+          background-color: transparent;
+          background-image: url("../../images/EyeIcon.svg");
+          background-position: center;
+          background-size: contain;
+        }
+        .eye-off {
+          @extend .eye-open;
+          background-image: url("../../images/EyeOffIcon.svg");
+        }
+      }
+    }
+
+    .switch-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #999fbc;
+      cursor: pointer;
+    }
+
+    .sign-in-btn {
+      width: 42px;
+      height: 42px;
+      background: #1d2e4b;
+      border: 1px solid #3b7de0;
+      transform: translate(-50%, 50%) rotate(45deg);
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      padding: 0;
+      z-index: 100;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+
+      &:hover {
+        background: #2c4570;
+        transition: 0.1s ease-in-out;
+      }
+
+      &::after {
+        content: "";
+        width: 16px;
+        height: 12px;
+        z-index: 101;
+        background-image: url("../../images/ConfirmBlue.svg");
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        transform: rotate(-45deg) translate(-1px, -70%);
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      margin: 70px auto 300px;
+      padding: 43px 30px;
+
+      .sign-in-input {
+        height: 50px;
+      }
+    }
+  }
+}
