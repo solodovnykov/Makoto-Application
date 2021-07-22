@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./mainText.scss";
 
-export default function MainText() {
+const MainText = () => {
   const [minecraftServerInfo, setMinecraftServerInfo] = useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,9 +25,7 @@ export default function MainText() {
           {minecraftServerInfo.players ? (
             <>
               <div className="square online" />
-              {minecraftServerInfo.players.online}
-              {" "}
-              игроков онлайн
+              {minecraftServerInfo.players.online} игроков онлайн
             </>
           ) : (
             <>
@@ -37,10 +35,12 @@ export default function MainText() {
           )}
         </div>
         <div className="main-text-discord">
-          3,246 участников
+          1,500+ участников
           <div className="dicord-icon-mini"></div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default React.memo(MainText);

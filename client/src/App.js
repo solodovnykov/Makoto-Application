@@ -1,27 +1,33 @@
-import React, { useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
-import Admin from "./pages/Admin/Admin";
-import Customer from "./pages/Customer/Customer";
 import { BrowserRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getPosts } from "./actions/posts";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
-import SignIn from "./pages/SignIn/SignIn";
+import NotFound from "./pages/NotFound/NotFound";
+import LoaderImg from "./images/Loader.gif";
+
+const Customer = lazy(() => import("./pages/Customer/Customer"));
+const Admin = lazy(() => import("./pages/Admin/Admin"));
+const SignIn = lazy(() => import("./pages/SignIn/SignIn"));
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
+  
   return (
-    <BrowserRouter basename="/">
-      <Switch>
-        <Route exact path="/" component={Customer} />
-        <AdminRoute path="/admin" component={Admin}></AdminRoute>
-        <Route path="/signIn" component={SignIn} />
-      </Switch>
-    </BrowserRouter>
+    <Suspense
+      fallback={
+        <div className="loader">
+          <img src={LoaderImg} alt="" className="loader-img" />
+        </div>
+      }
+    >
+      <BrowserRouter basename="/">
+        <Switch>
+          <Route exact path="/" render={() => <Customer />} />
+          <AdminRoute path="/admin" component={Admin} />
+          <Route path="/signIn" render={() => <SignIn />} />
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 

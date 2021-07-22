@@ -1,23 +1,38 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Container from "../../components/Container/Container";
-import Navbar from "../../components/Navbar/Navbar";
 import Home from "../../pages/Home/Home";
-import Footer from "../../components/Footer/Footer";
 import "./customer.scss";
 import Rules from "../Rules/Rules";
+import PostScreen from "../PostScreen/PostScreen";
+import PostListScreen from "../PostListScreen/PostListScreen";
+import NotFound from "../NotFound/NotFound";
+import StartPlay from "../StartPlay/StartPlay";
+import Eternum from "../Eternum/Eternum";
+
+const Navbar = lazy(() => import("../../components/Navbar/Navbar"));
+const Footer = lazy(() => import("../../components/Footer/Footer"));
 
 const Customer = () => {
   return (
     <HashRouter>
       <div className="customer">
         <Container>
-          <Navbar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Navbar />
+          </Suspense>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/rules" component={Rules} />
+            <Route exact path="/posts/:id" component={PostScreen} />
+            <Route exact path="/posts/" component={PostListScreen} />
+            <Route exact path="/startPlay" component={StartPlay} />
+            <Route exact path="/eternum" component={Eternum} />
+            <Route component={NotFound} />
           </Switch>
-          <Footer />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Footer />
+          </Suspense>
         </Container>
       </div>
     </HashRouter>

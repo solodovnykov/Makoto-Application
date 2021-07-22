@@ -11,7 +11,43 @@
       overflow-x: scroll;
       margin-top: 20px;
       padding-bottom: 20px;
-      
+
+      .players-skeleton {
+        min-width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 30px;
+        background: #131623d6;
+        position: relative;
+        border-radius: 5px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          height: 100%;
+          width: 100%;
+          background-image: linear-gradient(
+            120deg,
+            #13162305 30%,
+            #2a2c363d 38%,
+            #2a2c363d 40%,
+            #13162305 48%
+          );
+
+          background-repeat: no-repeat;
+          background-size: 200% 100%;
+          background-position: 100% 0;
+          animation: shimmer 1s linear infinite;
+          border-radius: 10px;
+        }
+
+        @keyframes shimmer {
+          100% {
+            background-position: -100% 0;
+          }
+        }
+      }
 
       &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);

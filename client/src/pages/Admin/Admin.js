@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import "./admin.scss";
 import { useDispatch, useSelector } from "react-redux";
 import MiniPostList from "../../components/MiniPostList/MiniPostList";
-import FileBase from "react-file-base64";
 import RedArrowImg from "../../images/RedArrowIcon.svg";
 import GreenPlusImg from "../../images/GreenPlusImg.svg";
+import imageCompression from "browser-image-compression";
 import { createPost, updatePost } from "../../actions/posts";
+import * as actionType from "../../constants/actionTypes";
+import PaginationAdmin from "../../components/PaginationAdmin/PaginationAdmin";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export default function Admin() {
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const [compressedImage, setCompressedImage] = useState("");
   const [currentId, setCurrentId] = useState(0);
+  const history = useHistory();
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -20,12 +30,30 @@ export default function Admin() {
   });
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSignin);
-  const { userInfo } = user;
 
   const post = useSelector((state) =>
-    currentId ? state.posts.find((p) => p._id === currentId) : null
+    currentId ? state.posts.posts.find((p) => p._id === currentId) : null
   );
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+    imageCompression(file, options).then((x) => setCompressedImage(x));
+  };
+
+  useEffect(() => {
+    if (compressedImage) {
+      const compr = async () => {
+        const base64 = await convertBase64(compressedImage);
+        setPostData({ ...postData, selectedFile: base64 });
+      };
+      compr();
+    }
+  }, [compressedImage]);
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -48,10 +76,34 @@ export default function Admin() {
       creator: "",
       title: "",
       message: "",
-      tags: "",
+      tags: [""],
       selectedFile: "",
     });
+    document.getElementById("input-file").value = "";
   };
+
+  const logout = () => {
+    dispatch({ type: actionType.LOGOUT });
+
+    history.push("/signIn");
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   return (
     <div className="admin">
@@ -59,17 +111,13 @@ export default function Admin() {
         <div className="admin-header">
           <div className="admin-bar">
             <div className="line-wrapper">
-              <div className="admin-bar-nickname">
-                {
-                  userInfo ? (
-                    <>
-                      {userInfo.result.login}
-                    </>
-                  ) : (
-                    ''
-                  )
-                }
-              </div>
+              <button
+                aria-label="logout"
+                className="admin-bar-nickname"
+                onClick={logout}
+              >
+                {user && user.result.login ? <>{user.result.login}</> : ""}
+              </button>
               <div className="line" />
             </div>
 
@@ -171,7 +219,7 @@ export default function Admin() {
             <div className="progress">
               <div className="back-square">
                 <div className="button">
-                  <img src={RedArrowImg} alt="" />
+                  <img src={RedArrowImg} alt="RedArrow" />
                 </div>
                 <div className={postData.title ? `line active` : `line`} />
               </div>
@@ -185,7 +233,7 @@ export default function Admin() {
                   <div className={postData.title ? `button active` : `button`}>
                     <img
                       src={GreenPlusImg}
-                      alt=""
+                      alt="GreenPlusImg"
                       className={
                         postData.title ? `button-image active` : `button-image`
                       }
@@ -224,7 +272,7 @@ export default function Admin() {
                   >
                     <img
                       src={GreenPlusImg}
-                      alt=""
+                      alt="GreenPlusIcon"
                       className={
                         postData.tags[0] !== ""
                           ? `button-image active`
@@ -267,7 +315,7 @@ export default function Admin() {
                   >
                     <img
                       src={GreenPlusImg}
-                      alt=""
+                      alt="GreenPlusIcon"
                       className={
                         postData.selectedFile
                           ? `button-image active`
@@ -277,7 +325,7 @@ export default function Admin() {
 
                     <div
                       className={
-                        postData.selectedFile
+                        postData.selectedFile !== ""
                           ? `progress-button-footer active`
                           : `progress-button-footer`
                       }
@@ -307,7 +355,7 @@ export default function Admin() {
                   >
                     <img
                       src={GreenPlusImg}
-                      alt=""
+                      alt="GreenPlusIcon"
                       className={
                         postData.message
                           ? `button-image active`
@@ -333,7 +381,19 @@ export default function Admin() {
                 </div>
               </div>
 
-              <button className="success-square" onClick={handleSubmit}>
+              <button
+                className="success-square"
+                aria-label="SuccessButton"
+                disabled={
+                  postData.title &&
+                  postData.tags[0] !== "" &&
+                  postData.selectedFile &&
+                  postData.message
+                    ? false
+                    : true
+                }
+                onClick={handleSubmit}
+              >
                 <div className={postData.message ? `line active` : `line`} />
                 <div
                   className={
@@ -380,14 +440,13 @@ export default function Admin() {
               name="tags"
               placeholder="Теги ( через запятую )"
             />
-            <FileBase
+            <input
+              id="input-file"
               type="file"
-              className="file-loader"
-              multiple={false}
-              onDone={({ base64 }) =>
-                setPostData({ ...postData, selectedFile: base64 })
-              }
-            ></FileBase>
+              onChange={(e) => {
+                uploadImage(e);
+              }}
+            />
             <textarea
               type="text"
               className="text-field"
@@ -400,9 +459,7 @@ export default function Admin() {
             />
           </form>
           <div className="image-area">
-            <div className="page-list">
-              <div className="page-number-btn">1</div>
-            </div>
+            <PaginationAdmin page={page} />
             <MiniPostList setCurrentId={setCurrentId} />
           </div>
         </div>

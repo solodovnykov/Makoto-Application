@@ -4,10 +4,36 @@ import mongoose from "mongoose";
 import PostMakoto from "../models/postMakoto.js";
 
 export const getPosts = async (req, res) => {
+  const { page } = req.query;
   try {
-    const postMakoto = await PostMakoto.find();
+    if (page !== 'undefined') {
+      const LIMIT = 6;
+      const startIndex = (Number(page) - 1) * LIMIT;
+      const total = await PostMakoto.countDocuments({});
 
-    res.status(200).json(postMakoto);
+      const posts = await PostMakoto.find()
+        .sort({ _id: -1 })
+        .limit(LIMIT)
+        .skip(startIndex);
+
+      res.status(200).json({
+        data: posts,
+        currentPage: Number(page),
+        numberOfPages: Math.ceil(total / LIMIT),
+      });
+    }
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await PostMakoto.findById(id);
+
+    res.status(200).json(post);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -24,6 +50,22 @@ export const createPost = async (req, res) => {
     res.status(201).json(newPost);
   } catch (error) {
     res.status(409).json({ message: error.message });
+  }
+};
+
+export const getPostsBySearch = async (req, res) => {
+  const { searchQuery, tags } = req.query;
+
+  try {
+    const title = new RegExp(searchQuery, "i");
+
+    const posts = await PostMakoto.find({
+      $or: [{ title }, { tags: { $in: tags.split(",") } }],
+    });
+
+    res.json({ data: posts });
+  } catch (error) {
+    res.status(404).json({ message: error });
   }
 };
 

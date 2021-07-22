@@ -1,0 +1,81 @@
+@import "../../sass/variables";
+
+.eternum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  .eternum-title-wrapper {
+    max-width: 465px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 150px auto;
+    .eternum-logo {
+      width: 155px;
+      height: 87px;
+      background: url("../../images/EternumLogo.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .eternum-title {
+      font-family: "Whitney", sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 77px;
+      color: #ffffff;
+      margin-left: 15px;
+    }
+    @media (max-width: 500px) {
+      margin: 100px auto 50px;
+      .eternum-logo {
+        width: 100px;
+        height: 60px;
+      }
+      .eternum-title {
+        font-size: 50px;
+      }
+    }
+    @media (max-width: 400px) {
+      margin: 100px auto 50px;
+      .eternum-logo {
+        width: 85px;
+        height: 55px;
+      }
+      .eternum-title {
+        font-size: 40px;
+      }
+    }
+  }
+  .eternum-text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    letter-spacing: 0.02em;
+    color: #cfcfcf;
+    margin: 35px 0 70px 0;
+  }
+  .navbar-main-button {
+    color: $font-main-color;
+    font-size: 18px;
+    font-weight: 700;
+    background: $blue-color;
+    border-left: 0.25px solid #a3c2f0;
+    border-top: 0.25px solid #a3c2f0;
+    border-right: 0.25px solid #a3c2f0;
+    padding: 12px 50px;
+    position: relative;
+    z-index: 200;
+    box-shadow: inset 0 -2.5px 0 #24487e;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 150px;
+  }
+}

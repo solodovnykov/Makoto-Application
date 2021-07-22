@@ -13,7 +13,11 @@ const MiniPost = ({ post, setCurrentId }) => {
         className="mini-post-header"
       >
         <div className="buttons">
-          <button className="edit-btn" onClick={() => setCurrentId(post._id)}>
+          <button
+            aria-label="EditButton"
+            className="edit-btn"
+            onClick={() => setCurrentId(post._id)}
+          >
             <svg
               className="edit-btn-icon"
               width="24"
@@ -42,6 +46,7 @@ const MiniPost = ({ post, setCurrentId }) => {
 
           <button
             className="delete-btn"
+            aria-label="EditButton"
             onClick={() => dispatch(deletePost(post._id))}
           >
             <svg
@@ -81,4 +86,4 @@ const MiniPost = ({ post, setCurrentId }) => {
   );
 };
 
-export default MiniPost;
+export default React.memo(MiniPost);

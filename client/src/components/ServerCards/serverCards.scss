@@ -1,0 +1,156 @@
+.server-cards {
+  height: 265px;
+  margin: 100px 0 20vw 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  .double-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .makoto-server-card {
+    height: 100%;
+
+    .server-card-title-wrapper {
+      margin: 50px 0 0 30px;
+      .server-card-title {
+        font-size: 42px;
+        line-height: 48px;
+      }
+
+      .server-card-subtitle {
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 25px;
+        color: #4ad849;
+      }
+    }
+
+    .server-card-online {
+      color: #4ad849;
+    }
+
+    @media (max-width: 600px) {
+      min-height: 122px;
+      display: flex;
+      align-items: center;
+      .server-card-title-wrapper {
+        margin: 0 0 0 30px;
+        .server-card-title {
+          font-size: 22px;
+          line-height: 25px;
+        }
+
+        .server-card-subtitle {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  .borneo-server-card {
+    min-height: 122px;
+    display: flex;
+    align-items: center;
+    .server-card-title-wrapper {
+      margin: 0 0 0 30px;
+      .server-card-title {
+        font-size: 22px;
+        line-height: 25px;
+      }
+
+      .server-card-subtitle {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        color: #daa4fc;
+      }
+    }
+    .server-card-online {
+      color: #daa4fc;
+    }
+  }
+
+  .hardcore-server-card {
+    min-height: 122px;
+    display: flex;
+    align-items: center;
+    .server-card-title-wrapper {
+      margin: 0 0 0 30px;
+      .server-card-title {
+        font-size: 22px;
+        line-height: 25px;
+      }
+
+      .server-card-subtitle {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        color: #fca4a4;
+      }
+    }
+    .server-card-online {
+      color: #fca4a4;
+    }
+  }
+
+  .server-card {
+    text-decoration: none;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    transition: 0.1s all ease-in-out;
+
+    &:hover {
+      filter: drop-shadow(0px 0px 10px rgba(63, 74, 114, 0.3));
+      transition: 0.1s all ease-in-out;
+    } 
+
+    .server-card-title-wrapper {
+      .server-card-title {
+        font-family: "Whitney", sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      .server-card-subtitle {
+        font-family: "Whitney", sans-serif;
+        font-weight: 600;
+      }
+    }
+
+    .server-card-online {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 0 10px 8px 0;
+      font-family: "Whitney", sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    height: auto;
+  }
+  @media (min-width: 2100px) {
+    margin: 100px 0 30vw 0;
+  }
+  @media (min-width: 2800px) {
+    margin: 100px 0 40vw 0;
+  }
+}

@@ -4,7 +4,7 @@ import updatesIcon from "../../images/UpdatesIcon.svg";
 import ourServers from "../../images/OurServers.svg";
 import donate from "../../images/Donate.svg";
 
-export default function TitleLine(props) {
+const TitleLine = (props) => {
   const [type, setType] = useState(updatesIcon);
 
   useEffect(() => {
@@ -29,4 +29,6 @@ export default function TitleLine(props) {
       <div className="title-line"></div>
     </div>
   );
-}
+};
+
+export default React.memo(TitleLine);

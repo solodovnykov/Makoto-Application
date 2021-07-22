@@ -1,23 +1,26 @@
-import React from "react";
+import React, { lazy } from "react";
 import { useSelector } from "react-redux";
-import MiniPost from "../../components/MiniPost/MiniPost";
 import "./miniPostList.scss";
+import loaderImg from "../../images/Loader.gif";
+
+const MiniPost = lazy(() => import("../../components/MiniPost/MiniPost"));
 
 const MiniPostList = ({ setCurrentId }) => {
-  const posts = useSelector((state) => state.posts);
-  
+  const { posts, isLoading } = useSelector((state) => state.posts);
 
   return (
-    <div className="mini-post-list">
-      {!posts.length ? (
-        <div>Loading...</div>
+    <div className="mini-posts">
+      {isLoading ? (
+        <img src={loaderImg} alt="" className="loader" />
       ) : (
-        posts.map((post) => (
-          <MiniPost key={post._id} post={post} setCurrentId={setCurrentId} />
-        ))
+        <div className="mini-post-list">
+          {posts.map((post) => (
+            <MiniPost key={post._id} post={post} setCurrentId={setCurrentId} />
+          ))}
+        </div>
       )}
     </div>
   );
 };
 
-export default MiniPostList;
+export default React.memo(MiniPostList);

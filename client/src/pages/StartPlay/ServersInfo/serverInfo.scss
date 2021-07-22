@@ -1,0 +1,160 @@
+.makoto-server-info {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  .server-info-title {
+    font-family: "Whitney", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 48px;
+    color: #ffffff;
+  }
+  .server-info-subtitle {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 25px;
+  }
+  .makoto-subtitle {
+    color: #4ad849;
+  }
+  .borneo-subtitle {
+    color: #daa4fc;
+  }
+  .hardcore-subtitle {
+    color: #fca4a4;
+  }
+  .server-info-text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    letter-spacing: 0.02em;
+    color: #cfcfcf;
+    @media (max-width: 370px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  .bold-text {
+    font-weight: 500;
+    margin-top: 40px;
+  }
+  .margin-top-20 {
+    margin-top: 20px;
+  }
+  .server-guide-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    .line {
+      width: 100%;
+      height: 1px;
+      background: rgba(131, 136, 158, 0.28);
+    }
+    .server-guide-title-text {
+      min-width: 225px;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 25px;
+      color: #ffffff;
+      margin: 0 20px;
+    }
+  }
+  .server-guide {
+    margin: 30px 0 100px 0;
+    .server-guide-step {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: #acacac;
+      margin: 15px 0;
+      button {
+        background: none;
+        padding: 0;
+        border: none;
+        color: #acacac;
+        cursor: pointer;
+        text-decoration: underline;
+        &:hover::after {
+          content: "Нажмите чтобы скопировать";
+          position: absolute;
+          transform: translate(-98%, -30px);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          background: rgba(73, 73, 83, 0.35);
+          backdrop-filter: blur(20px);
+          z-index: 103;
+          padding: 2px 7px;
+          box-sizing: border-box;
+        }
+      }
+    }
+    .server-guide-img {
+      max-width: 515px;
+      height: 515px;
+      width: 100%;
+      background-image: url("../../../images/DiscordBotImg.webp");
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 30px auto;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+
+      @media (max-width: 600px) {
+        max-width: 450px;
+        height: 450px;
+      }
+      @media (max-width: 480px) {
+        max-width: 400px;
+        height: 400px;
+      }
+      @media (max-width: 440px) {
+        max-width: 350px;
+        height: 350px;
+      }
+      @media (max-width: 390px) {
+        max-width: 310px;
+        height: 310px;
+      }
+    }
+  }
+  .server-guide-note {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #acacac;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    .vertical-line {
+      width: 2px;
+      height: 50px;
+      background: #acacac;
+      margin-right: 25px;
+
+      @media (max-width: 560px) {
+        height: 75px;
+      }
+      @media (max-width: 370px) {
+        height: 95px;
+      }
+    }
+  }
+
+  @media (min-width: 1800px) {
+    margin: 0 auto 20vw;
+  }
+  @media (min-width: 2500px) {
+    margin: 0 auto 30vw;
+  }
+  @media (min-width: 3400px) {
+    margin: 0 auto 40vw;
+  }
+}

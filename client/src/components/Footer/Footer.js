@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.scss";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-after"></div>
@@ -15,9 +15,24 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-networks">
-        <div className="footer-discord-icon"></div>
-        <div className="footer-vk-icon"></div>
+        <a
+          href="https://discord.com/invite/yzBCF4V"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-discord-icon"
+        >
+          {""}
+        </a>
+        <a
+          href="https://vk.com/makotomc"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-vk-icon"
+        >
+          {""}
+        </a>
       </div>
     </div>
   );
-}
+};
+export default React.memo(Footer);

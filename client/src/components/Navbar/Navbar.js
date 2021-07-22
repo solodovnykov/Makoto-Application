@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar.scss";
 
-export default function Navbar() {
+const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [navbarActive, setNavbarActive] = useState(false);
 
@@ -33,8 +33,13 @@ export default function Navbar() {
       <div
         className={navbarActive ? "navbar-wrapper active" : "navbar-wrapper"}
       >
-        <div className="logo"></div>
-        <button className="navbar-main-button-mob">ХОЧУ ИГРАТЬ!</button>
+        <Link to="/">
+          <div className="logo"></div>
+        </Link>
+
+        <Link to="/startPlay" className="navbar-main-button-mob">
+          ХОЧУ ИГРАТЬ!
+        </Link>
         <div
           onClick={() => setMobileMenu(!mobileMenu)}
           id="burger-menu"
@@ -46,61 +51,95 @@ export default function Navbar() {
 
       <div id="menu" className="navbar-main">
         <div className="navbar-menu-logo">MAKOTO</div>
-        <ul className="navbar-list">
-          <li className="navbar-item">
-            <NavLink
-              to="/"
-              exact
-              activeClassName="navbar-link-active"
-              className="navbar-link"
-            >
-              О СЕРВЕРЕ
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink
-              to="/signIn"
-              activeClassName="navbar-link-active"
-              className="navbar-link"
-            >
-              РУКОВОДСТВА
-            </NavLink>
-          </li>
-        </ul>
+        <div className="navbar-list-wrapper">
+          <ul className="navbar-list">
+            <li className="navbar-item">
+              <NavLink
+                to="/"
+                exact
+                activeClassName="navbar-link-active"
+                className="navbar-link"
+              >
+                О СЕРВЕРЕ
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink
+                to="/signIn"
+                activeClassName="navbar-link-active"
+                className="navbar-link"
+              >
+                РУКОВОДСТВА
+              </NavLink>
+            </li>
+          </ul>
 
-        <button className="navbar-main-button">ХОЧУ ИГРАТЬ!</button>
+          <Link to="/startPlay" className="navbar-main-button">
+            ХОЧУ ИГРАТЬ!
+          </Link>
 
-        <ul className="navbar-list">
-          <li className="navbar-item">
-            <NavLink
-              to="/rules"
-              activeClassName="navbar-link-active"
-              className="navbar-link"
-            >
-              ПРАВИЛА
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink
-              to="/vote"
-              activeClassName="navbar-link-active"
-              className="navbar-link"
-            >
-              ГОЛОСОВАНИЕ
-            </NavLink>
-          </li>
-        </ul>
+          <ul className="navbar-list">
+            <li className="navbar-item">
+              <NavLink
+                to="/rules"
+                activeClassName="navbar-link-active"
+                className="navbar-link"
+              >
+                ПРАВИЛА
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink
+                to="/eternum"
+                activeClassName="navbar-link-active"
+                className="navbar-link"
+              >
+                ETERNUM
+              </NavLink>
+            </li>
+          </ul>
+        </div>
 
         <div className="navbar-networks-menu">
-          <div href="#" className="navbar-icons discord-icon"></div>
-          <div href="#" className="navbar-icons vk-icon"></div>
+          <a
+            href="https://discord.com/invite/yzBCF4V"
+            target="_blank"
+            rel="noreferrer"
+            className="navbar-icons discord-icon"
+          >
+            {""}
+          </a>
+          <a
+            href="https://vk.com/makotomc"
+            target="_blank"
+            rel="noreferrer"
+            className="navbar-icons vk-icon"
+          >
+            {""}
+          </a>
         </div>
       </div>
 
       <div className="navbar-networks">
-        <div href="#" className="navbar-icons discord-icon"></div>
-        <div href="#" className="navbar-icons vk-icon"></div>
+        <a
+          href="https://discord.com/invite/yzBCF4V"
+          target="_blank"
+          rel="noreferrer"
+          className="navbar-icons discord-icon"
+        >
+          {""}
+        </a>
+        <a
+          href="https://vk.com/makotomc"
+          target="_blank"
+          rel="noreferrer"
+          className="navbar-icons vk-icon"
+        >
+          {""}
+        </a>
       </div>
     </div>
   );
-}
+};
+
+export default React.memo(Navbar);

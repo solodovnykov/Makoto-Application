@@ -21,13 +21,13 @@ const PlayerList = () => {
       <TitleLine type="update">НАШИ ИГРОКИ</TitleLine>
       <div className="players-wrapper">
         <div className="players">
-          {!makotoServerInfo.players ? (
-            <div>Loading...</div>
-          ) : (
-            makotoServerInfo.players.sample.map((player) => (
-              <PlayerCard key={player.id} player={player} />
-            ))
-          )}
+          {!makotoServerInfo.players
+            ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+                <div className="players-skeleton" key={i} />
+              ))
+            : makotoServerInfo.players.sample.map((player) => (
+                <PlayerCard key={player.id} player={player} />
+              ))}
         </div>
         <div className="shadow-block" />
       </div>
@@ -35,4 +35,4 @@ const PlayerList = () => {
   );
 };
 
-export default PlayerList;
+export default React.memo(PlayerList);

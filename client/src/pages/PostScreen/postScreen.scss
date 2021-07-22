@@ -1,0 +1,127 @@
+.post-screen {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 15vw;
+
+  @media (min-width: 1900px) {
+    margin: 0 auto 20vw;
+  }
+  @media (min-width: 2170px) {
+    margin: 0 auto 30vw;
+  }
+  @media (min-width: 3000px) {
+    margin: 0 auto 40vw;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 300px;
+    background-image: url("../../images/BorneoBg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #131624;
+    margin-top: 100px;
+
+    @media (max-width: 575.98px) {
+      height: 190px;
+    }
+  }
+
+  .post-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .post-title {
+      font-weight: 900;
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: 0.02em;
+    }
+
+    .post-time {
+      font-weight: 350;
+      font-size: 14px;
+      line-height: 18px;
+      color: #83889e;
+    }
+
+    @media (max-width: 575.98px) {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .post-time {
+        margin-top: 10px;
+      }
+
+      .post-header {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .post-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    .tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      padding: 4px 9px;
+      border: 0.1px solid rgba(255, 255, 255, 0.2);
+      margin-right: 7px;
+      background: #313e7a;
+    }
+  }
+
+  .post-text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: justify;
+    letter-spacing: 0.02em;
+    color: #cfcfcf;
+    margin: 60px 0 100px 0;
+
+    @media (max-width: 575.98px) {
+      font-size: 16px;
+      line-height: 21px;
+      margin: 30px 0 100px 0;
+    }
+  }
+
+  .recommended {
+    gap: 10px;
+    margin: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+    @media (max-width: 575.98px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .recommended-title {
+    font-size: 28px;
+    font-weight: 800;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .line {
+      width: 100%;
+      height: 0.5px;
+      margin-left: 20px;
+      background: rgba(131, 136, 158, 0.28);
+    }
+  }
+}

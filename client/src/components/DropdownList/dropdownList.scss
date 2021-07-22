@@ -1,0 +1,192 @@
+.dropdown-list-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  .rule-title-number {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #afafaf;
+    margin-right: 15px;
+    margin-top: 11px;
+    position: relative;
+    z-index: 100;
+  }
+  .dropdown-card {
+    width: 100%;
+    background: rgba(19, 22, 36, 0.7);
+    padding: 10px 23px;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+
+    .rule-content-line {
+      height: 100%;
+      width: 0;
+      background: rgba(131, 136, 158, 0.28);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translate(0, 0);
+
+      transition: 0.2s all ease-in-out;
+
+      &.show {
+        transform: translate(-25px, 15px);
+        width: 0.5px;
+        transition: 0.2s all ease-in-out;
+        transition-delay: 0.2s;
+      }
+    }
+
+    .dropdown-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+
+      &.show::after {
+        transform: translateX(-50px);
+        width: 53px;
+        transition: 0.2s all ease-in-out;
+        transition-delay: 0.2s;
+      }
+
+      &::after {
+        content: "";
+        transform: translateX(0);
+        height: 30px;
+        width: 3px;
+        background: #2d313f;
+        position: absolute;
+        left: 0;
+        top: 6px;
+        z-index: 1;
+        transition: 0.2s all ease-in-out;
+      }
+
+      .rule-title {
+        color: #afafaf;
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Chrome/Safari/Opera */
+        -khtml-user-select: none; /* Konqueror */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+        overflow-wrap: normal;
+
+        @media (max-width: 375px) {
+          font-size: 16px;
+        }
+      }
+
+      .rule-title-btn {
+        width: 12px;
+        height: 6px;
+        background: url("../../images/ArrowDropdownIcon.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        transition: 0.4s all ease-in-out;
+
+        &.show {
+          transform: rotate(180deg);
+          transition: 0.4s all ease-in-out;
+        }
+      }
+    }
+  }
+
+  .rule-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s all cubic-bezier(0, 1, 0, 1);
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+
+    .rule-content-line {
+      height: 100%;
+      width: 2px;
+      background: #fff;
+      position: absolute;
+    }
+
+    .rule-wrapper {
+      margin: 0 10px;
+      &:first-child {
+        margin: 20px 10px 0 10px !important;
+      }
+      &:last-child {
+        margin: 0 10px 20px 10px !important;
+      }
+      .rule-text-wrapper {
+        display: flex;
+        flex-direction: row;
+        font-family: Roboto;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 19px;
+
+        .rule-number {
+          color: #fff;
+          font-weight: 700;
+          margin-right: 10px;
+        }
+        .rule-text {
+          color: #afafaf;
+          font-weight: 400;
+        }
+      }
+
+      .rule-penalty {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 20px;
+        box-sizing: border-box;
+        .rule-penalty-icon {
+          min-width: 18px;
+          height: 18px;
+          background: url("../../images/ArrodDropdownСornerIcon.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin: 0 10px;
+          transform: translateY(-3px);
+        }
+        .rule-penalty-text {
+          font-family: "Roboto", sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 16px;
+
+          color: #d6d6d6;
+        }
+      }
+    }
+
+    &.show {
+      height: auto;
+      max-height: 9999px;
+      transition: 0.5s all cubic-bezier(1, 0, 1, 0);
+    }
+  }
+}

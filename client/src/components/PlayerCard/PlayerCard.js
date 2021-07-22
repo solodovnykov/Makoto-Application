@@ -6,17 +6,19 @@ const PlayerCard = ({ player }) => {
     <div className="player-card">
       <div className="player-card-header">
         <div
-          style={{
-            backgroundImage: `url(https://crafatar.com/avatars/${player.id})`,
-          }}
+          style={
+            player
+              ? {
+                  backgroundImage: `url(https://crafatar.com/avatars/${player.id})`,
+                }
+              : ""
+          }
           className="player-img"
         ></div>
       </div>
-      <div className="player-name">
-        {player.name}
-      </div>
+      <div className="player-name">{player.name}</div>
     </div>
   );
 };
 
-export default PlayerCard;
+export default React.memo(PlayerCard);

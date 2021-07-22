@@ -1,0 +1,72 @@
+@import "../../sass/variables";
+
+.not-found {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .not-found-wrapper {
+    height: 173px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .error-code {
+      font-family: "Whitney", sans-serif;
+      font-weight: 900;
+      font-size: 144px;
+      line-height: 173px;
+      color: #ffffff;
+    }
+    .not-found-line {
+      width: 2px;
+      height: 100%;
+      background: #fff;
+      margin: 0 40px;
+    }
+
+    .not-found-msg-wrapper {
+      .not-found-msg {
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 43px;
+        color: #ffffff;
+        margin-bottom: 30px;
+
+        @media (max-width: 630px) {
+          font-size: 24px;
+        }
+      }
+      .not-found-btn {
+        color: $font-main-color;
+        font-size: 20px;
+        font-weight: 700;
+        background: $blue-color;
+        border-left: 0.25px solid #a3c2f0;
+        border-top: 0.25px solid #a3c2f0;
+        border-right: 0.25px solid #a3c2f0;
+        padding: 12px 50px;
+        position: relative;
+        z-index: 200;
+        box-shadow: inset 0 -2.5px 0 #24487e;
+        text-decoration: none;
+
+        &::before {
+          left: -5px;
+          top: -5px;
+          width: 100%;
+          height: 100%;
+          content: "";
+          position: absolute;
+          border: 5px solid rgba(19, 22, 36, 0.6);
+          z-index: 101;
+        }
+      }
+    }
+    @media (max-width: 630px) {
+      flex-direction: column;
+    }
+  }
+}

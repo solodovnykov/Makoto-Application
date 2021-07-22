@@ -1,0 +1,18 @@
+.rules {
+  max-width: 800px;
+  width: 100%;
+  margin: 150px auto;
+
+  .rules-list {
+    margin: 50px 0 350px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media (min-width: 2000px) {
+      margin: 50px 0 30vw 0;
+    }
+    @media (min-width: 3100px) {
+      margin: 50px 0 40vw 0;
+    }
+  }
+}

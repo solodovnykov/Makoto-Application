@@ -6,7 +6,6 @@
   margin: 0 auto 30px;
 
   @media (max-width: 575.98px) {
-    max-height: 250px;
     height: 100%;
   }
 
@@ -74,6 +73,17 @@
     }
   }
 
+  .post-loader {
+    width: 100%;
+    height: 295px;
+    @media (max-width: 575.98px) {
+      max-height: 250px !important;
+    }
+    @media (max-width: 430px) {
+      max-height: 190px !important;
+    }
+  }
+
   .post-card-body {
     width: 100%;
     height: 295px;
@@ -83,45 +93,80 @@
     margin-top: 7px;
     border: 1px solid #131624;
     position: relative;
+    cursor: pointer;
 
-    .post-card-footer {
-      width: 100.2%;
-      height: 40px;
-      background: rgba(19, 22, 36, 0.75);
+    @media (max-width: 575.98px) {
+      max-height: 250px !important;
+    }
+    @media (max-width: 430px) {
+      max-height: 190px !important;
+    }
+
+    &:hover {
+      .post-card-footer-wrapper {
+        .post-card-text {
+          display: -webkit-box;
+          transition: 0.1s all ease-in-out;
+        }
+      }
+    }
+
+    .post-card-footer-wrapper {
       position: absolute;
       bottom: -1px;
       left: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 17px;
+      width: 100.2%;
+      background: rgba(19, 22, 36, 0.75);
+      padding: 9px 17px;
       box-sizing: border-box;
+      transition: 0.1s all ease-in-out;
 
-      .post-card-footer-icon {
-        width: 16px;
-        height: 14px;
-        background-image: url("../../images/ArrowIcon.svg");
-        background-size: cover;
-        background-position: center;
-
-        @media (max-width: 575.98px) {
-          width: 8px;
-          height: 8px;
-        }
+      .post-card-text {
+        font-weight: 350;
+        font-size: 14px;
+        line-height: 18px;
+        color: #a3a7ba;
+        display: none;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: 3px;
+        padding: 0 16px 0 0;
+        box-sizing: border-box;
+        transition: 0.1s all ease-in-out;
       }
 
-      .post-card-footer-text {
-        font-size: 16px;
-        font-weight: 350;
+      .post-card-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
 
-        @media (max-width: 575.98px) {
-          font-size: 14px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          padding: 0 10px 0 0;
-          box-sizing: border-box;
+        .post-card-footer-icon {
+          width: 16px;
+          height: 14px;
+          background-image: url("../../images/ArrowIcon.svg");
+          background-size: cover;
+          background-position: center;
+
+          @media (max-width: 575.98px) {
+            width: 8px;
+            height: 8px;
+          }
+        }
+
+        .post-card-footer-text {
+          font-size: 16px;
+          font-weight: 350;
+
+          @media (max-width: 575.98px) {
+            font-size: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 0 10px 0 0;
+            box-sizing: border-box;
+          }
         }
       }
     }

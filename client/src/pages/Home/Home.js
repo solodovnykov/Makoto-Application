@@ -1,12 +1,22 @@
-import React from "react";
-import MainText from "../../components/MainText/MainText";
-import Posts from "../../components/Posts/Posts";
-import OurServers from "../../components/OurServers/OurServers";
-import Donate from "../../components/Donate/Donate";
-import PlayerList from "../../components/PlayerList/PlayerList";
+import React, { lazy, useEffect } from "react";
 import "./home.scss";
 
+import PlayerList from "../../components/PlayerList/PlayerList";
+
+import Donate from "../../components/Donate/Donate";
+
+const MainText = lazy(() => import("../../components/MainText/MainText"));
+const Posts = lazy(() => import("../../components/Posts/Posts"));
+const OurServers = lazy(() => import("../../components/OurServers/OurServers"));
+// const PlayerList = lazy(() => import("../../components/Donate/Donate"));
+// const Donate = lazy(() => import("../../components/PlayerList/PlayerList"));
+
 export const Home = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  });
   return (
     <div className="home">
       <MainText />
@@ -18,4 +28,4 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
