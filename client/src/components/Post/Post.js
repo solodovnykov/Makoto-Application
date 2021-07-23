@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import 'moment/locale/ru';
+import "moment/locale/ru";
 import { useHistory } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import "./post.scss";
@@ -17,7 +17,7 @@ const Post = ({ post, height }) => {
         <div className="post-card-tags">
           {post.tags.map((tag, index) => (
             <div key={index} className="tag post-tag-event">
-              {tag}
+              {tag.toUpperCase()}
             </div>
           ))}
         </div>

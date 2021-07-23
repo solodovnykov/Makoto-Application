@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../serverInfo.scss";
 
 const BorneoServerInfo = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  });
   return (
     <div className="borneo-server-info">
       <div className="makoto-server-info">
@@ -33,8 +38,8 @@ const BorneoServerInfo = () => {
           </div>
           <div className="server-guide-step">
             2. Зайди на сервер{" "}
-            <CopyToClipboard text="creative.makotomc.ru">
-              <button>(IP: CREATIVE.MAKOTOMC.RU)</button>
+            <CopyToClipboard text="borneo.makotomc.ru">
+              <button>(IP: borneo.makotomc.ru)</button>
             </CopyToClipboard>{" "}
             и наслаждайся :D
           </div>

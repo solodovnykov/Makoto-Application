@@ -27,8 +27,8 @@ const HardcoreServerInfo = () => {
           <br />
           <br />
           Этот сервер был создан на базе проекта Eternum, в нем учавствует 5
-          серверов (со временем кол-во серверов увеличится). Для входа вам не
-          потребуется лицензия, сервер доступен каждому и каждой.
+          серверов (со временем кол-во серверов увеличится). Для входа вам
+          потребуется лицензия. Удачной игры!
         </div>
         <div className="server-guide-title">
           <div className="line" />
@@ -38,8 +38,8 @@ const HardcoreServerInfo = () => {
         <div className="server-guide">
           <div className="server-guide-step">
             1. Зайди на сервер{" "}
-            <CopyToClipboard text="creative.makotomc.ru">
-              <button>(IP: CREATIVE.MAKOTOMC.RU)</button>
+            <CopyToClipboard text="hardcore.eternum.su">
+              <button>(IP: hardcore.eternum.su)</button>
             </CopyToClipboard>{" "}
             и наслаждайся :D
           </div>

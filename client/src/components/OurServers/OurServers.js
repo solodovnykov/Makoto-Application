@@ -154,8 +154,8 @@ const OurServers = () => {
           </div>
           <div className="server-card-footer">
             <div className="server-card-link">РУКОВОДСТВО И ПОМОЩЬ</div>
-            <CopyToClipboard text="creative.makotomc.ru">
-              <button className="server-card-ip">CREATIVE.MAKOTOMC.RU</button>
+            <CopyToClipboard text="borneo.makotomc.ru">
+              <button className="server-card-ip">BORNEO.MAKOTOMC.RU</button>
             </CopyToClipboard>
           </div>
         </div>
@@ -201,7 +201,7 @@ const OurServers = () => {
               <>
                 Этот сервер был создан на базе проекта Eternum, в нем учавствует
                 5 серверов (со временем кол-во серверов увеличится). Для входа
-                вам не потребуется лицензия, сервер доступен каждому и каждой.
+                вам потребуется лицензия. Удачной игры!
               </>
             ) : (
               ""
@@ -210,8 +210,8 @@ const OurServers = () => {
         </div>
         <div className="server-card-footer">
           <div className="server-card-link">РУКОВОДСТВО И ПОМОЩЬ</div>
-          <CopyToClipboard text="vanilla.makotomc.ru">
-            <button className="server-card-ip">VANILLA.MAKOTOMC.RU</button>
+          <CopyToClipboard text="hardcore.eternum.su">
+            <button className="server-card-ip">HARDCORE.ETERNUM.SU</button>
           </CopyToClipboard>
         </div>
       </div>
