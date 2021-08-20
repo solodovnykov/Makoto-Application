@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 
 import authReducer from "./reducers/auth";
 import posts from "./reducers/posts";
+import manualsReducer from './reducers/manuals';
 
 const initialState = {
   userSignin: {
@@ -14,7 +15,7 @@ const initialState = {
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const reducers = combineReducers({ posts: posts, userSignin: authReducer });
+const reducers = combineReducers({ posts: posts, userSignin: authReducer, manuals: manualsReducer});
 
 const store = createStore(
   reducers,

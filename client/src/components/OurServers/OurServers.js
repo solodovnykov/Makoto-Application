@@ -49,9 +49,9 @@ const OurServers = () => {
           className="server-card"
           style={{ backgroundImage: `url(${makotoBg})` }}
         >
-          <div className="server-card-flag-makoto">
+          <h2 className="server-card-flag-makoto">
             <p>SURVIVAL</p>
-          </div>
+          </h2>
           <div className="server-card-header">
             <div className="server-card-title">
               <div className="server-card-title-text">
@@ -107,9 +107,9 @@ const OurServers = () => {
           className="server-card"
           style={{ backgroundImage: `url(${borneoBg})` }}
         >
-          <div className="server-card-flag-borneo">
+          <h2 className="server-card-flag-borneo">
             <p>CREATIVE</p>
-          </div>
+          </h2>
           <div className="server-card-header">
             <div className="server-card-title">
               <div className="server-card-title-text">
@@ -164,13 +164,13 @@ const OurServers = () => {
         className="server-card server-card-full"
         style={{ backgroundImage: `url(${hardcoreBg})` }}
       >
-        <div className="server-card-flag-hardcore">
-          <p>HARDCORE</p>
-        </div>
+        <h2 className="server-card-flag-hardcore">
+          <p>ONEBLOCK</p>
+        </h2>
         <div className="server-card-header">
           <div className="server-card-title">
             <div className="server-card-title-text">
-              HARDCORE
+              ONE BLOCK
               <span className="w-350 red-c f-16">1.17.1</span>
             </div>
             <div className="server-card-online">
@@ -181,26 +181,22 @@ const OurServers = () => {
           </div>
 
           <div className="server-card-game-mode red-c">
-            Игровой режим:{" "}
-            <span className="w-350 white-c">Хардкор-Выживание</span>
+            Игровой режим: <span className="w-350 white-c">Мини-Игра</span>
           </div>
         </div>
         <div className="server-card-body">
           <p>
-            Hardcore by Eternum - хардорный сервер, который объеденяет много
-            разных проектов.
+            One Block by Makoto - это известная мини-игра в исполнении от
+            Makoto.
             <br />
             <br />
-            Hardcore by Eternum, сервер для тех, кому наскучила вечная жизнь.
-            Испытай себя и других. А если случилась оказия, и предназначение ещё
-            не исполнено, то не беда, Харон, так уж и быть, вернёт с того света.
-            Правда, за горсть звонких монет.
+            Наш One Block удивит Вас и затянет надолго, заходи и попробуй выжить
+            на одном блоке.
             <br />
             <br />
             {window.screen.width >= 480 ? (
               <>
-                Этот сервер был создан на базе проекта Eternum, в нем учавствует
-                5 серверов (со временем кол-во серверов увеличится). Для входа
+                Этот сервер был создан для отдыха от ванильного сервера. Для входа
                 вам потребуется лицензия. Удачной игры!
               </>
             ) : (
@@ -210,8 +206,8 @@ const OurServers = () => {
         </div>
         <div className="server-card-footer">
           <div className="server-card-link">РУКОВОДСТВО И ПОМОЩЬ</div>
-          <CopyToClipboard text="hardcore.eternum.su">
-            <button className="server-card-ip">HARDCORE.ETERNUM.SU</button>
+          <CopyToClipboard text="one.makotomc.ru">
+            <button className="server-card-ip">ONE.MAKOTOMC.RU</button>
           </CopyToClipboard>
         </div>
       </div>

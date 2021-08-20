@@ -49,6 +49,64 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* <nav className="navbar-bottom">
+        <ul className="navbar-bottom-list">
+          <li className="navbar-bottom-item ">
+            <NavLink
+              to="/"
+              exact
+              activeClassName="navbar-bottom-item-active"
+              className=""
+            >
+              <span class="nav-indicator"></span>
+              <div className="navbar-bottom-icon home-icon" />
+              <div className="navbar-bottom-text">О СЕРВЕРЕ</div>
+            </NavLink>
+          </li>
+          <li className="navbar-bottom-item">
+            <NavLink to="/ssdf" activeClassName="navbar-bottom-item-active">
+              <span class="nav-indicator"></span>
+              <div className="navbar-bottom-icon manual-icon" />
+              <div className="navbar-bottom-text">РУКОВОДСТВА</div>
+            </NavLink>
+          </li>
+          <div className="navbar-bottom-makoto-logo"></div>
+          <li className="navbar-bottom-item">
+            <NavLink to="/rules" activeClassName="navbar-bottom-item-active">
+              <span class="nav-indicator"></span>
+              <div className="navbar-bottom-icon rules-icon" />
+              <div className="navbar-bottom-text">ПРАВИЛА</div>
+            </NavLink>
+          </li>
+          <li className="navbar-bottom-item">
+            <NavLink to="/eternum" activeClassName="navbar-bottom-item-active">
+              <span class="nav-indicator"></span>
+              <div className="navbar-bottom-icon eternum-icon" />
+              <div className="navbar-bottom-text">ETERNUM</div>
+            </NavLink>
+          </li>
+        </ul>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="filter-svg">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="10"
+                result="blur"
+              />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -9"
+                result="goo"
+              />
+              <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+          </defs>
+        </svg>
+      </nav> */}
+
       <div id="menu" className="navbar-main">
         <div className="navbar-menu-logo">MAKOTO</div>
         <div className="navbar-list-wrapper">
@@ -65,7 +123,7 @@ const Navbar = () => {
             </li>
             <li className="navbar-item">
               <NavLink
-                to="/signIn"
+                to="/manuals"
                 activeClassName="navbar-link-active"
                 className="navbar-link"
               >

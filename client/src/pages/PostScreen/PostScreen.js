@@ -7,6 +7,7 @@ import { getPost, getPostsBySearch } from "../../actions/posts";
 import "./postScreen.scss";
 import Post from "../../components/Post/Post";
 import LoaderImg from "../../images/Loader.gif";
+import parse from 'html-react-parser';
 
 moment.locale("ru");
 
@@ -56,7 +57,7 @@ const PostScreen = () => {
             style={{ backgroundImage: `url(${post.selectedFile})` }}
           />
           <div className="post-header">
-            <div className="post-title">{post.title}</div>
+            <h1 className="post-title">{post.title}</h1>
             <div className="post-time">
               {moment(post.createdAt).format("LL")}
             </div>
@@ -68,7 +69,7 @@ const PostScreen = () => {
               </div>
             ))}
           </div>
-          <div className="post-text">{post.message}</div>
+          <div className="post-text">{parse(post.message)}</div>
         </>
       )}
 

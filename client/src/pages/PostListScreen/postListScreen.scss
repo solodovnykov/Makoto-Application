@@ -6,4 +6,14 @@
   @media (min-width: 2500px) {
     margin: 100px 0 40vw 0;
   }
+
+  .post-list-title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pagination-wrapper {
+    margin-top: 20px;
+  }
 }

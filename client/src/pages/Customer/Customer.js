@@ -9,6 +9,8 @@ import PostListScreen from "../PostListScreen/PostListScreen";
 import NotFound from "../NotFound/NotFound";
 import StartPlay from "../StartPlay/StartPlay";
 import Eternum from "../Eternum/Eternum";
+import Manuals from "../Manuals/Manuals";
+import ManualScreen from "../ManualScreen/ManualScreen";
 
 const Navbar = lazy(() => import("../../components/Navbar/Navbar"));
 const Footer = lazy(() => import("../../components/Footer/Footer"));
@@ -28,6 +30,8 @@ const Customer = () => {
             <Route exact path="/posts/" component={PostListScreen} />
             <Route exact path="/startPlay" component={StartPlay} />
             <Route exact path="/eternum" component={Eternum} />
+            <Route exact path="/manuals" component={Manuals} />
+            <Route exact path="/manuals/:id" component={ManualScreen} />
             <Route component={NotFound} />
           </Switch>
           <Suspense fallback={<div>Loading...</div>}>

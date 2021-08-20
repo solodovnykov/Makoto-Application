@@ -309,6 +309,122 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
       transition: 0.2s background ease;
     }
+
+    .navbar-bottom {
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      margin-top: 0;
+      background: #2c3341;
+      z-index: 205;
+      border-radius: 20px;
+      margin: 15px auto;
+      filter: url("#goo");
+
+      .nav-indicator {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #2c3341;
+        position: absolute;
+        top: -18px;
+        z-index: -2;
+        display: none;
+        transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .navbar-bottom-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+
+          &.navbar-bottom-item-active {
+            transform: translateY(-90%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+
+          &.navbar-bottom-item-active .navbar-bottom-text {
+            display: block;
+          }
+          &.navbar-bottom-item-active .nav-indicator {
+            display: block;
+          }
+        }
+
+        .navbar-bottom-makoto-logo {
+          width: 40px;
+
+          &::after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("../../images/MakotoLogo.png");
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 5px solid #181d2e;
+          }
+        }
+
+        .navbar-bottom-item {
+          .navbar-bottom-text {
+            color: #fff;
+            font-weight: 400;
+            font-size: 12px;
+            display: none;
+            transform: translateY(30px);
+            white-space: nowrap;
+            position: absolute;
+          }
+          .navbar-bottom-icon {
+            width: 24px;
+            height: 24px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          .home-icon {
+            background-image: url("../../images/HomeIcon.svg");
+          }
+          .manual-icon {
+            background-image: url("../../images/ManualIcon.svg");
+          }
+          .rules-icon {
+            background-image: url("../../images/RulesIcon.svg");
+          }
+          .eternum-icon {
+            background-image: url("../../images/EternumIcon.svg");
+          }
+        }
+      }
+
+      #filter-svg {
+        display: none;
+      }
+    }
     .navbar-menu-logo {
       font-size: 42px;
     }

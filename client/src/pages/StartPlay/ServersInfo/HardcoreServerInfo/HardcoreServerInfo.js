@@ -11,23 +11,17 @@ const HardcoreServerInfo = () => {
   return (
     <div className="hardcore-server-info">
       <div className="makoto-server-info">
-        <div className="server-info-title">HARDCORE</div>
-        <div className="server-info-subtitle hardcore-subtitle">
-          ХАРДКОР-ВЫЖИВАНИЕ
-        </div>
+        <div className="server-info-title">ONE BLOCK</div>
+        <div className="server-info-subtitle hardcore-subtitle">МИНИ-ИГРА</div>
         <div className="server-info-text bold-text">
-          Hardcore by Eternum - хардорный сервер, который объеденяет много
-          разных проектов.
+          One Block by Makoto - это известная мини-игра в исполнении от Makoto.
         </div>
         <div className="server-info-text margin-top-20">
-          Hardcore by Eternum, сервер для тех, кому наскучила вечная жизнь.
-          Испытай себя и других. А если случилась оказия, и предназначение ещё
-          не исполнено, то не беда, Харон, так уж и быть, вернёт с того света.
-          Правда, за горсть звонких монет.
+          Наш One Block удивит Вас и затянет надолго, заходи и попробуй выжить
+          на одном блоке.
           <br />
           <br />
-          Этот сервер был создан на базе проекта Eternum, в нем учавствует 5
-          серверов (со временем кол-во серверов увеличится). Для входа вам
+          Этот сервер был создан для отдыха от ванильного сервера. Для входа вам
           потребуется лицензия. Удачной игры!
         </div>
         <div className="server-guide-title">
@@ -38,18 +32,15 @@ const HardcoreServerInfo = () => {
         <div className="server-guide">
           <div className="server-guide-step">
             1. Зайди на сервер{" "}
-            <CopyToClipboard text="hardcore.eternum.su">
-              <button>(IP: hardcore.eternum.su)</button>
+            <CopyToClipboard text="one.makotomc.ru">
+              <button>(IP: one.makotomc.ru)</button>
             </CopyToClipboard>{" "}
             и наслаждайся :D
-          </div>
-          <div className="server-guide-step">
-            2. В случае смерти, возродиться можно за небольшую сумму.
           </div>
           <div className="server-guide-note">
             <div className="vertical-line" />
             <div className="server-guide-note-text">
-              На сервере у тебя есть только одна жизнь!
+              Уважай других игроков и не мешай им!
             </div>
           </div>
         </div>

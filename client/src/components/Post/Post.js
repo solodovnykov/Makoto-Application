@@ -4,6 +4,7 @@ import "moment/locale/ru";
 import { useHistory } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import "./post.scss";
+import parse from 'html-react-parser';
 
 moment.locale("ru");
 
@@ -41,10 +42,10 @@ const Post = ({ post, height }) => {
         >
           <div className="post-card-footer-wrapper">
             <div className="post-card-footer">
-              <div className="post-card-footer-text">{post.title}</div>
+              <h1 className="post-card-footer-text">{post.title}</h1>
               <div className="post-card-footer-icon"></div>
             </div>
-            <div className="post-card-text">{post.message}</div>
+            <div className="post-card-text">{parse(post.message)}</div>
           </div>
         </div>
       </LazyLoad>

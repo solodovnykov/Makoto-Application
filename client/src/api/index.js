@@ -22,3 +22,10 @@ export const fetchPost = (id) => API.get(`/posts/${id}`);
 
 export const signIn = (formData) => API.post("/user/signIn", formData);
 export const signUp = (formData) => API.post("/user/signUp", formData);
+
+export const fetchManuals = (page) => API.get(`/manuals?page=${page}`);
+export const fetchManual = (id) => API.get(`/manuals/${id}`);
+export const createManual = (newManual) => API.post("/manuals", newManual);
+export const deleteManual = (id) => API.delete(`/manuals/${id}`, deleteManual);
+export const updateManual = (id, updateManual) =>
+  API.patch(`/manuals/${id}`, updateManual);

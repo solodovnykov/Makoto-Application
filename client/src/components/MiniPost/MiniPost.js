@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { deleteManual } from "../../actions/manuals";
 import { deletePost } from "../../actions/posts";
 import "./miniPost.scss";
 
-const MiniPost = ({ post, setCurrentId }) => {
+const MiniPost = ({ post, setCurrentId, type }) => {
   const dispatch = useDispatch();
 
   return (
@@ -47,7 +48,11 @@ const MiniPost = ({ post, setCurrentId }) => {
           <button
             className="delete-btn"
             aria-label="EditButton"
-            onClick={() => dispatch(deletePost(post._id))}
+            onClick={
+              type === "post"
+                ? () => dispatch(deletePost(post._id))
+                : () => dispatch(deleteManual(post._id))
+            }
           >
             <svg
               className="delete-btn-icon"

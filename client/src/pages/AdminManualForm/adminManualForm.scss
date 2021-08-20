@@ -1,0 +1,68 @@
+.ck-editor__main {
+  height: 350px;
+  resize: none;
+  background: rgba(88, 92, 112, 0.05);
+  border: 1px solid rgba(88, 92, 112, 0.25);
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999fbc;
+  .ck-editor__editable,
+  .ck-focused {
+    background: none !important;
+    border: none !important;
+    height: 100%;
+    box-shadow: none !important;
+  }
+}
+
+.mini-manuals-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.ck-button_with-text {
+  border-radius: 0 !important;
+}
+
+
+.ck.ck-toolbar {
+  background: #0f141d !important;
+  border: 1px solid rgba(88, 92, 112, 0.25) !important;
+}
+
+.ck.ck-reset_all,
+.ck.ck-reset_all * {
+  color: #999fbc !important;
+}
+.ck-button:hover {
+  background: #1a212e !important;
+}
+
+.ck-dropdown__button {
+  background: #1a212e !important;
+}
+.ck-button_with-text {
+  background: #1a212e !important;
+}
+.ck-dropdown__panel-visible,
+.ck-list {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.ck-file-dialog-button {
+  display: none !important;
+}
+.ck-dropdown__panel, .ck-input-text, .ck-label {
+  background: #1a212e !important;
+  border: 1px solid rgba(88, 92, 112, 0.25) !important;
+}
+.ck-on {
+  background: #0f141d !important;
+}

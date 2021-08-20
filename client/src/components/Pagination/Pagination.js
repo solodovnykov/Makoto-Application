@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./pagination.scss";
 
-const Pagination = ({ page }) => {
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+const Pagination = ({ page, route }) => {
+  const query = useQuery();
+  const pageNumber = query.get("page") || 1;
   const [firstPage, setFirstPage] = useState(0);
   const [lastPage, setLastPage] = useState(5);
   const { numberOfPages } = useSelector((state) => state.posts);
@@ -24,12 +30,12 @@ const Pagination = ({ page }) => {
 
   return (
     <div className="pagination">
-      <div className='page-buttons'>
+      <div className="page-buttons">
         {firstPage === 0 ? (
           ""
         ) : (
           <div className="page-number-btn prev-next-btn" onClick={previousPage}>
-            Prev
+            {'<'}
           </div>
         )}
         {[...Array(numberOfPages).keys()]
@@ -37,8 +43,12 @@ const Pagination = ({ page }) => {
           .map((page, index) => (
             <Link
               key={index}
-              className="page-number-btn"
-              to={`/posts?page=${Number(page + 1)}`}
+              className={
+                pageNumber == page + 1
+                  ? "page-number-btn page-number-btn-active"
+                  : "page-number-btn"
+              }
+              to={`/${route}?page=${Number(page + 1)}`}
             >
               {page + 1}
             </Link>
@@ -47,11 +57,10 @@ const Pagination = ({ page }) => {
           ""
         ) : (
           <div className="page-number-btn prev-next-btn" onClick={nextPage}>
-            Next
+            {'>'}
           </div>
         )}
       </div>
-      <div className="page-text">Страница {page}</div>
     </div>
   );
 };

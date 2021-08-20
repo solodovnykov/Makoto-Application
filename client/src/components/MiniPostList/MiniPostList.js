@@ -15,7 +15,12 @@ const MiniPostList = ({ setCurrentId }) => {
       ) : (
         <div className="mini-post-list">
           {posts.map((post) => (
-            <MiniPost key={post._id} post={post} setCurrentId={setCurrentId} />
+            <MiniPost
+              key={post._id}
+              post={post}
+              setCurrentId={setCurrentId}
+              type="post"
+            />
           ))}
         </div>
       )}

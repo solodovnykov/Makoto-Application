@@ -1,0 +1,82 @@
+.manual-card {
+  max-width: 500px;
+  max-height: 169px;
+  background: rgba(19, 22, 36, 0.7);
+  border: 1px solid rgba(16, 19, 29, 0.73);
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+  box-sizing: border-box;
+  gap: 25px;
+  cursor: pointer;
+
+  .manual-card-image {
+    min-width: 115px;
+    height: 115px;
+    border: 1px solid rgba(16, 19, 29, 0.73);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../images/MakotoLogo.png");
+
+    @media (max-width: 860px) {
+      min-width: 90px;
+      height: 90px;
+    }
+  }
+  .manual-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .manual-card-title {
+      font-family: "Whitney", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 25px;
+      color: #ffffff;
+
+      @media (max-width: 910px) {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+    .manual-card-text {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.45);
+
+      @media (max-width: 860px) {
+        -webkit-line-clamp: 2;
+      }
+
+      @media (max-width: 450px) {
+        -webkit-line-clamp: 2;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+
+    
+  }
+
+  @media (max-width: 860px) {
+    margin: 0 auto;
+  }
+
+  @media (max-width: 450px) {
+    padding: 15px;
+    gap: 15px;
+  }
+}

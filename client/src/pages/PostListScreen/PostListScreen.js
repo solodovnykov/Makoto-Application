@@ -19,9 +19,23 @@ const PostListScreen = () => {
   });
   return (
     <div className="post-list-screen">
-      <TitleLine type="update">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</TitleLine>
+      <div className="post-list-title-wrapper">
+        <TitleLine type="update">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</TitleLine>
+        {window.screen.width >= 480 ? (
+          <Pagination page={page} route="posts" />
+        ) : (
+          ""
+        )}
+      </div>
+      {window.screen.width <= 480 ? (
+        <div className="pagination-wrapper">
+          <Pagination page={page} route="posts" />
+        </div>
+      ) : (
+        ""
+      )}
+
       <PostList />
-      <Pagination page={page} />
     </div>
   );
 };

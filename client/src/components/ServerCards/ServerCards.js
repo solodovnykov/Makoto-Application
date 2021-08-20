@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./serverCards.scss";
 import makotoBg from "../../images/OurServersPostMakoto.webp";
 import borneoBg from "../../images/OurServersPostBorneo.webp";
+import oneBlock from '../../images/OurServersPostHardcore.webp'
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -20,7 +21,7 @@ const ServerCards = () => {
         );
 
         const hardcoreRes = await axios.get(
-          `https://eu.mc-api.net/v3/server/ping/hardcore.eternum.su`
+          `https://eu.mc-api.net/v3/server/ping/one.makotomc.ru`
         );
 
         if (makotoRes && borneoRes && hardcoreRes) {
@@ -71,12 +72,12 @@ const ServerCards = () => {
 
         <Link
           to="/startPlay?page=3"
-          style={{ backgroundImage: `url(${makotoBg})` }}
+          style={{ backgroundImage: `url(${oneBlock})` }}
           className="server-card hardcore-server-card"
         >
           <div className="server-card-title-wrapper">
-            <div className="server-card-title">HARDCORE</div>
-            <div className="server-card-subtitle">ХАРДКОР-ВЫЖИВАНИЕ</div>
+            <div className="server-card-title">ONE BLOCK</div>
+            <div className="server-card-subtitle">МИНИ-ИГРА</div>
           </div>
           <div className="server-card-online">
             {hardcoreServerInfo.players
