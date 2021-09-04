@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import "./signIn.scss";
 
-import { signIn, signUp } from "../../actions/auth";
+import { signIn } from "../../actions/auth";
 
 const initialState = {
   firstName: "",

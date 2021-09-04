@@ -27,7 +27,7 @@ const Donate = () => {
         </div>
         <div className="donate-products">
           <a
-            href="https://vk.com/im?media=&sel=-193002853"
+            href="https://donate.makotomc.ru/"
             className="donate-card donate-card-green-border"
             target="_blank"
             rel="noreferrer"
@@ -46,7 +46,7 @@ const Donate = () => {
           </a>
 
           <a
-            href="https://vk.com/im?media=&sel=-193002853"
+            href="https://donate.makotomc.ru/"
             className="donate-card donate-card-purple-border"
             target="_blank"
             rel="noreferrer"
@@ -63,7 +63,7 @@ const Donate = () => {
           </a>
 
           <a
-            href="https://vk.com/im?media=&sel=-193002853"
+            href="https://donate.makotomc.ru/"
             className="donate-card donate-card-pink-border"
             target="_blank"
             rel="noreferrer"

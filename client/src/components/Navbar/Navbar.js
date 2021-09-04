@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
+  const [dropDown, setDropDown] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [navbarActive, setNavbarActive] = useState(false);
 
@@ -123,11 +124,11 @@ const Navbar = () => {
             </li>
             <li className="navbar-item">
               <NavLink
-                to="/manuals"
+                to="/eternum"
                 activeClassName="navbar-link-active"
                 className="navbar-link"
               >
-                РУКОВОДСТВА
+                ETERNUM
               </NavLink>
             </li>
           </ul>
@@ -146,14 +147,39 @@ const Navbar = () => {
                 ПРАВИЛА
               </NavLink>
             </li>
-            <li className="navbar-item">
-              <NavLink
-                to="/eternum"
-                activeClassName="navbar-link-active"
-                className="navbar-link"
+
+            <li className="navbar-item navbar-dropdown">
+              <div
+                onClick={() => setDropDown(!dropDown)}
+                className="navbar-dropdown-title"
               >
-                ETERNUM
-              </NavLink>
+                ПРОЧЕЕ{" "}
+                <span
+                  className={
+                    dropDown
+                      ? "navbar-dropdown-triangle active"
+                      : "navbar-dropdown-triangle"
+                  }
+                />
+              </div>
+
+              {dropDown ? (
+                <div className="navbar-dropdown-wrapper">
+                  <NavLink to="/manuals" activeClassName="navbar-link-active-dropdown" className="navbar-link">
+                    РУКОВОДСТВА
+                  </NavLink>
+                  <a
+                    href="https://donate.makotomc.ru/"
+                    target='_blank'
+                    rel="noreferrer"
+                    className="navbar-link"
+                  >
+                    МАГАЗИН
+                  </a>
+                </div>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
         </div>

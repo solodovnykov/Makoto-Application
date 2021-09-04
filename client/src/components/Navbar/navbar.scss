@@ -163,6 +163,10 @@
       box-sizing: border-box;
       z-index: 211;
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      -ms-backdrop-filter: blur(20px);
+      -o-backdrop-filter: blur(20px);
       border-right: 1px solid rgba(255, 255, 255, 0.25);
       overflow-y: scroll;
     }
@@ -179,10 +183,59 @@
       flex-direction: row;
       list-style: none;
       padding: 0;
+      margin: 0;
+
+      &:last-child {
+        transform: translateY(5px);
+      }
+
+      .navbar-dropdown-triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 5px 0 5px;
+        border-color: #83889e transparent transparent transparent;
+        transform: translate(10px, 5px);
+        position: absolute;
+        transition: 0.2s all ease-in-out;
+      }
+      .navbar-dropdown-triangle.active {
+        transform: translate(10px, 5px) rotate(180deg);
+        transition: 0.2s all ease-in-out;
+      }
 
       @media (max-width: 1199.98px) {
         flex-direction: column;
-        margin: 0;
+      }
+
+      .navbar-dropdown {
+        position: relative;
+        height: 100%;
+        color: #83889e;
+        padding: 5px 30px 4px 15px !important;
+        box-sizing: border-box;
+        font-family: "Whitney", sans-serif;
+        font-weight: 600;
+        transform: translateY(-6px);
+
+        .navbar-dropdown-title {
+          cursor: pointer;
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Chrome/Safari/Opera */
+          -khtml-user-select: none; /* Konqueror */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+        }
+
+        .navbar-dropdown-wrapper {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          gap: 5px;
+
+          margin: 15px 0;
+        }
       }
 
       .navbar-item {
@@ -199,6 +252,11 @@
         }
 
         .navbar-link-active {
+          color: #3687ff;
+          position: relative;
+        }
+
+        .navbar-link-active-dropdown {
           color: #3687ff;
           position: relative;
         }
@@ -301,10 +359,19 @@
       background: transparent;
       z-index: 205;
       transition: 0.2s background ease;
+      -webkit-transition: 0.2s background ease;
+      -moz-transition: 0.2s background ease;
+      -ms-transition: 0.2s background ease;
+      -o-transition: 0.2s background ease;
     }
     .navbar-wrapper.active {
       background: rgba(19, 23, 40, 0.6);
+
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      -ms-backdrop-filter: blur(20px);
+      -o-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
       transition: 0.2s background ease;
